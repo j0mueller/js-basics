@@ -101,3 +101,44 @@ document.getElementById("concat").innerHTML =
   "<br>Joined string: " + joined;
 
 //NUMBERS
+num = 123.45678;
+numStr = num.toString();
+numExp = num.toExponential(2);
+numFix = num.toFixed(7); //specified number of decimal places
+numPre = num.toPrecision(7); //specified length
+//global methods for converting variables to numbers:
+w = true;
+x = Number(w);
+y = false;
+z = Number(y);
+document.getElementById("to-other").innerHTML =
+  "Starting number: " + num +
+  "<br>To string: " + numStr +
+  "<br>To Exponential(2): " + numExp +
+  "<br>To Fixed(7): " + numFix +
+  "<br>To Precision(7): " + numPre +
+  "<br>Using global Number() function:<br>If w = true, Number(w) = " + x +
+  "<br>If y = false, Number(y) = " + z;
+
+//MATH
+roundDown = Math.round(4.4);
+roundUp = Math.round(4.5);
+power = Math.pow(4, 3);
+root = Math.sqrt(225);
+abs = Math.abs(-3.2);
+ceiling = Math.ceil(4.2);
+floor = Math.floor(4.8);
+min = Math.min(1, 0, 50, -200, 3000);
+max = Math.max(1, 0, 50, -200, 3000);
+random = Math.random(); //btw 0 incl and 1 excl
+document.getElementById("math").innerHTML =
+  "Math.round(4.4): " + roundDown +
+  "<br>Math.round(4.5): " + roundUp +
+  "<br>Math.pow(4, 3): " + power +
+  "<br>Math.sqrt(225): " + root +
+  "<br>Math.abs(-3.2): " + abs +
+  "<br>Math.ceil(4.2): " + ceiling +
+  "<br>Math.abs(4.8): " + floor +
+  "<br>Math.min(1, 0, 50, -200, 3000): " + min +
+  "<br>Math.max(1, 0, 50, -200, 3000): " + max +
+  "<br>Math.random(): " + random;
