@@ -1,0 +1,31 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto+Slab|Roboto|Inconsolata);
+
+p {
+  margin-left: 25px;
+}
+
+body {
+  font-family:  Roboto, "Helvetica Neue", Helvetica, Arial, sans-serif;
+  color: #646464;
+  background-color: #F6F6F7;
+  margin: 0 10%;
+}
+
+div {
+  border-radius: 5px;
+}
+
+.code {
+  font-family: Inconsolata, Consolas, "Liberation Mono", Courier, monospace;
+  background-color: #EAEAEA;
+  white-space: pre;
+  margin: 2ex 0;
+}
+/*
+#result {
+  background-color: #E0F0F1;
+  font-size: 32px;
+  margin: 1ex 0;
+  padding: 1ex 0;
+  text-align: center;
+}*/

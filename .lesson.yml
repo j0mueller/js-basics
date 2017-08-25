@@ -1,0 +1,7 @@
+---
+title: "JS Basics"
+type: "practice"
+description: "Practice basic javascript"
+tags: "javascript, conditionals"
+ignore:
+- "js-basics.md"
