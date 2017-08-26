@@ -34,14 +34,33 @@ document.getElementById("dates").innerHTML = message;
 str = "abcdefghijk";
 length = str.length;
 arr = str.split("");
-reverse = arr.reverse();
-newString = reverse.join("");
-function reverseString(str){
+//method 1
+let reverseString = (str) => {
   return str.split("").reverse().join("");
+}
+//method 2
+let revStr = (arr) => {
+  let result = '';
+  for (let i = 0; i < arr.length; i++) {
+    result = arr[i] + result;
+  }
+  return result;
 }
 document.getElementById("reverse").innerHTML =
   `<h4>Reversing a string</h4>The original string: ${str}.
-  <br>The reversed string: ` + reverseString(str);
+  <br>1. let reverseString = (str) => {
+    <br>&nbsp;&nbsp;&nbsp;  return str.split("").reverse().join("");
+  <br>&nbsp;&nbsp;}
+  <br>The reversed string: ` + reverseString(str) +
+  `<br><br>2. let revStr = (arr) => {
+    <br>&nbsp;&nbsp;&nbsp; let result = '';
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;for (let i = 0; i < arr.length; i++) {
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;  result = arr[i] + result;
+    <br>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;}
+    <br>&nbsp;&nbsp;return result;
+  }
+  <br>The reversed string: ` + revStr(arr);
+
 
 //slice and substrings
 // slice(start, end)
@@ -142,3 +161,121 @@ document.getElementById("math").innerHTML =
   "<br>Math.min(1, 0, 50, -200, 3000): " + min +
   "<br>Math.max(1, 0, 50, -200, 3000): " + max +
   "<br>Math.random(): " + random;
+document.getElementById("constants").innerHTML =
+  "Math.E: &nbsp;&nbsp;" + Math.E +
+  "<br>Math.PI: &nbsp;&nbsp;" + Math.PI +
+  "<br>Math.SQRT2: &nbsp;&nbsp;" + Math.SQRT2 +
+  "<br>Math.SQRT1_2: &nbsp;&nbsp;" + Math.SQRT1_2 +
+  "<br>Math.LN2: &nbsp;&nbsp;" + Math.LN2 +
+  "<br>Math.LN10: &nbsp;&nbsp;" + Math.LN10 +
+  "<br>Math.LOG2E: &nbsp;&nbsp;" + Math.LOG2E +
+  "<br>Math.LOG10E: &nbsp;&nbsp;" + Math.LOG10E;
+
+//Arrays
+array = ["cat", "dog", "mouse", "goat", "chicken"]
+document.getElementById("array").innerHTML =
+  "Original Array: ['cat', 'dog', 'mouse', 'goat', 'chicken']"
+
+array.push("cow"); //add to end
+document.getElementById("push").innerHTML =
+  "array.push('cow'): " + array;
+
+array.unshift("sheep") //add to front
+document.getElementById("unshift").innerHTML =
+  "array.unshift('sheep'): " + array;
+
+array.pop(); //remove from end
+document.getElementById("pop").innerHTML =
+  "array.pop(): " + array;
+
+array.shift();  //remove from front
+document.getElementById("shift").innerHTML =
+  "array.shift(): " + array;
+
+//splice parameters(add position, # to remove, elements to add...)
+animals = ["cat", "dog", "mouse"];
+animals.splice(2, 0, "rabbit");
+document.getElementById("splice").innerHTML = "Original array: animals = ['cat', 'dog', 'mouse']<br>animals.splice(2, 0, 'rabbit'): " + animals;
+
+//concat methods
+a = ["Alice", "Bob", "Carol"];
+b = ["Dave", "Emma", "Frank"];
+c = a.concat(b);
+d = a.concat(["Georgia", "Henry"]);
+document.getElementById("merge").innerHTML =
+  'Array a: ["Alice", "Bob", "Carol"]<br>Array b: ["Dave", "Emma", "Frank"]<br>a.concat(b): ' + c + '<br>a.concat(["Georgia", "Henry"]): ' + d;
+
+//Sorting an array
+upper = ['Dave', 'Alice', 'Frank', 'Carol', 'Bob'];
+lower = ['dog', 'mouse', 'cat', 'cow', 'goat']
+mixed = ['dave', 'Alice', 'frank', 'Carol', 'bob']
+numbers = [8, 3, 24, -7, -2.5, 0]
+document.getElementById("sort").innerHTML =
+  "Array with all uppercase initials: " + upper.sort() +
+  "<br>Array with all lowercase letters: " + lower.sort() +
+  "<br>Array with mixed initial case: " + mixed.sort() +
+  "<br>Array of numbers using .sort(): " + numbers.sort() + "  WRONG!" +
+  "<br>Sort an array of numbers using the Compare Function .sort(function(a, b){return a - b}): " + numbers.sort(function(a, b){return a - b}) + "  Correct!" +
+  "<br>Sort descending using .sort(function(a, b){return b - a}): " + numbers.sort(function(a, b){return b - a}) +
+  "<h4>Using sort and then selecting the first or last element is an inefficient way to find the min or max. Instead, try these methods:</h4>";
+document.getElementById('max').innerHTML =
+  `1a. Math.max.apply(null, numbers): ${Math.max.apply(null, numbers)} (based on array of numbers above)`
+document.getElementById('min').innerHTML =
+  `1b. Math.min.apply(null, numbers): ${Math.min.apply(null, numbers)}`
+document.getElementById('reduce').innerHTML =
+  `2. numbers.reduce(function(a, b) {return Math.max(a, b);}): ${numbers.reduce(function(a, b){return Math.max(a, b);})}`
+document.getElementById('spread').innerHTML =
+  `3. Math.max(...numbers): ${Math.max(...numbers)}`
+
+//Looping
+let i = 1;
+let count = 100;
+let sum = 0;
+while (i <= 100) {
+  sum = sum + i;
+  i++;
+}
+document.getElementById('while').innerHTML =
+  `let i = 1;
+  <br>let count = 100;
+  <br>let sum = 0;
+  <br>while (i <= 100) {
+    <br>&nbsp&nbsp sum = sum + i;
+    <br>&nbsp&nbsp i++;
+    <br>}
+    <br>sum = ${sum}`
+
+let phrase = "Repetition is the key to learning."
+let repeat = ''
+for (let i = 0; i < 3; i++) {
+  repeat = `${phrase}<br>${repeat}`
+}
+document.getElementById('for').innerHTML =
+  'let phrase = "Repetition is the key to learning."<br>let repeat = ""<br>for (let i = 0; i < 3; i++) {<br>&nbsp&nbsp repeat = `${phrase}<br>${repeat}`<br>}<br>' + repeat;
+
+let newArray = [3, 5, 7];
+let elements = '';
+let forIn = (array) => {
+  for (let i in array) {
+    elements += ' ' + i.toString();
+  }
+  return elements;
+}
+let items = '';
+let forOf = (array) => {
+  for (let i of array) {
+    items += ' ' + i.toString();
+  }
+  return items;
+}
+document.getElementById('forInAndOf').innerHTML = `Original array: [3, 5, 7]<br>Using: for (let i in array): ${forIn(newArray)}<br>Using: for (let i of array): ${forOf(newArray)}`
+
+let things = ['apples', 'bananas', 'oranges'];
+let list = '';
+let forEach = (array) => {
+  array.forEach((thing) => {
+    list += thing + ' <br>'
+  })
+  return list;
+}
+document.getElementById('forEach').innerHTML = `Original array: ['apples', 'bananas', 'oranges']<br>Using forEach to create a list:<br>${forEach(things)}`
